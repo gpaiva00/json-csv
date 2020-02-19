@@ -1,76 +1,117 @@
-#container {
+body {
+  background-color: #F2EFEA;
+}
+.d-flex {
   display: flex;
-  flex-direction: row;
+}
+
+.j-content-center {
   justify-content: center;
-  margin-top: 50px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#container {
+  flex-direction: row;
+  align-content: center;
+  margin-top: 15vh;
 }
 
 #convertContainer {
-  display: flex;
   height: 350px;
   margin: 0 20px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-#outputContainer {
-  display: flex;
-  height: 260px;
-  flex-direction: column;
-  /* justify-content: space-between; */
+#inputText {
+  /* background-color: #805E73; */
+  /* background-color: rgba(134, 104, 123, 0.644); */
+  background-color: #413e3e;
+  color: #fff;
+  height: 330px;
+  border: 0;
+  border-radius: 15px;
+  resize: none;
+}
+
+#uploadButton {
+  background-color: #F2EFEA;
+  /* background-color: #87BCDE; */
+  width: 60px;
+  height: 38px;
+  margin: 0 10px;
+  color: #4E4D5C;
+  border-radius: 15px;
+  font-size: x-large;
 }
 
 .tile {
-  background-color: #ccb9b8;
+  background-color: #525252;
   width: 350px;
-  height: 350px;
   border-radius: 15px;
 }
 
 .mini-tile {
-  background-color: #db615b;
-  border-radius: 10px;
-  width: 70px;
-  height: 70px;
-  margin: 10px 0;
-  border: 0;
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-content: center; */
-}
-
-.input-file-tile {
-  background-color: #ccb9b8;
-  width: 350px;
+  color: #fff;
+  min-width: 100px;
   height: 50px;
-  border-radius: 15px;
-  margin-top: 10px;
+  border-radius: 5px;
+  border: 0;
 }
 
 .option-tile {
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 350px;
-  height: 50px;
   margin-top: 10px;
 }
 
+.convert-option {
+  background-color: #805E73;
+  font-weight: 500;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.input-file-tile {
+  background-color: #4E4D5C;
+  color: #F2EFEA;
+  height: 50px;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-text-tile {
+  height: 350px;
+  align-items: center;
+}
+
+.output-tile {
+  height: 350px;
+}
+
 #inputSide .output-option {
-  background-color: rgb(145, 204, 231);
+  background-color: #805E73;
   width: 100px;
   height: 50px;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
   border: 0;
-  cursor: pointer;
 }
 
 .output-option i {
   align-self: center;
   font-size: x-large;
+}
+
+.input-file-tile p {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: large;
+}
+
+.convert-option i {
+  margin: 0 5px;
 }

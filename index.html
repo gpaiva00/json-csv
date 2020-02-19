@@ -1,34 +1,46 @@
 <html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
-<link href="./style.css" type="text/css" rel="stylesheet"/>
+<link href="./style.css" type="text/css" rel="stylesheet" />
+
 <body>
-<div id="container">
-  <div id="inputSide">
-    <div class="tile">
-      <textarea name="input-text" id="inputText" cols="40" rows="20"></textarea>
+  <div id="container" class="d-flex j-content-center">
+    <div id="inputSide">
+      <div class="d-flex j-content-center tile input-text-tile">
+        <textarea name="input-text" id="inputText" cols="39" placeholder="Digite ou cole aqui o conteúdo">
+        </textarea>
+      </div>
+      <div class="d-flex tile input-file-tile">
+        <!-- <input type="file" name="file-input" id="fileInput"> -->
+        <p>Ou selecione do seu PC</p>
+        <button id="uploadButton" class="mini-tile">
+          <i class="cil-data-transfer-up"></i>
+        </button>
+      </div>
     </div>
-    <div class="input-file-tile">
-      <input type="file" name="file-input" id="fileInput">
-    </div>
-  </div>
-  <div id="convertContainer">
-    <button class="mini-tile">JSON <i class="cil-chevron-circle-down-alt"></i> CSV</button>
-    <button class="mini-tile">CSV <i class="cil-chevron-circle-down-alt"></i> JSON</button>
-  </div>
-  <div id="inputSide">
-   <div class="tile">
-    <!-- output text -->
-     
-    </div>
-    <div class="option-tile">
-      <button class="output-option">
-        <i class="cil-data-transfer-down"></i>
+    <div id="convertContainer" class="d-flex j-content-center">
+      <button class="d-flex mini-tile convert-option">
+        JSON <i class="cil-chevron-circle-right-alt"></i> CSV
       </button>
-      <button class="output-option">
-        <i class="cil-copy"></i>
+      <button class="d-flex mini-tile convert-option">
+        CSV <i class="cil-chevron-circle-right-alt"></i> JSON
       </button>
     </div>
+    <div id="inputSide">
+      <div class="tile output-tile">
+        <!-- output text -->
+      </div>
+      <div class="d-flex option-tile">
+        <button class="mini-tile output-option">
+          <i class="cil-data-transfer-down"></i>
+        </button>
+        <button class="mini-tile output-option">
+          <i class="cil-copy"></i>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-  </body>
+  <script src="./index.js"></script>
+</body>
+
 </html>
