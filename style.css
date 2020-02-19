@@ -31,6 +31,7 @@ button {
   /* background-color: rgba(134, 104, 123, 0.644); */
   background-color: #413e3e;
   color: #fff;
+  /* font-size: 15px; */
   height: 330px;
   border: 0;
   border-radius: 15px;
@@ -91,6 +92,13 @@ button {
 
 .output-tile {
   height: 350px;
+  align-items: center;
+}
+
+/* empty tile with icon */
+.output-tile i {
+  font-size: 60px;
+  color: #413e3e;
 }
 
 #inputSide .output-option {
