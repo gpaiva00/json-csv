@@ -39,9 +39,9 @@ button {
 }
 
 #uploadButton {
-  background-color: #F2EFEA;
+  /* background-color: #F2EFEA; */
   /* background-color: #87BCDE; */
-  width: 60px;
+  width: 50px;
   height: 38px;
   margin: 0 10px;
   color: #4E4D5C;
@@ -81,8 +81,24 @@ button {
   color: #F2EFEA;
   height: 50px;
   margin-top: 10px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.input-file-tile:hover {
+  background-color: #805E73;
+}
+
+/* upload icon */
+.input-file-tile i {
+  font-size: x-large;
+}
+
+.input-file-tile p {
+  margin-left: 15px;
+  font-weight: lighter;
+  font-size: medium;
 }
 
 .input-text-tile {
@@ -109,17 +125,13 @@ button {
   border: 0;
 }
 
+/* download and copy icons */
 .output-option i {
   align-self: center;
   font-size: x-large;
 }
 
-.input-file-tile p {
-  margin-left: 15px;
-  font-weight: 500;
-  font-size: large;
-}
-
+/* chev right icon */
 .convert-option i {
   margin: 0 5px;
 }
