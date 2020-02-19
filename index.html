@@ -5,18 +5,20 @@
 
 <body>
   <div id="container" class="d-flex j-content-center">
-    <div id="inputSide">
+    <!-- INPUT SIDE -->
+    <div id="content">
       <div class="d-flex j-content-center tile input-text-tile">
-        <textarea name="input-text" id="inputText" cols="39" placeholder="Digite ou cole aqui o conteúdo"></textarea>
+        <textarea name="input-text" id="inputText" placeholder="Digite ou cole aqui o conteúdo"></textarea>
       </div>
       <div class="d-flex tile input-file-tile">
-        <!-- <input type="file" name="file-input" id="fileInput"> -->
+        <input type="file" name="file-input" id="fileInput" class="d-none">
         <i class="cil-data-transfer-up"></i>
-        <p>OU SELECIONE DO SEU PC</p>
+        <p>OU SUBA UM ARQUIVO</p>
         <!-- <div id="uploadButton" class=""> -->
         <!-- </div> -->
       </div>
     </div>
+    <!-- CONVERT SIDE -->
     <div id="convertContainer" class="d-flex j-content-center">
       <button class="d-flex mini-tile convert-option">
         JSON <i class="cil-chevron-circle-right-alt"></i> CSV
@@ -25,7 +27,8 @@
         CSV <i class="cil-chevron-circle-right-alt"></i> JSON
       </button>
     </div>
-    <div id="inputSide">
+    <!-- OUTPUT SIDE -->
+    <div id="content">
       <div class="d-flex j-content-center tile output-tile">
         <!-- output text -->
         <i class="cil-notes"></i>
@@ -40,6 +43,10 @@
       </div>
     </div>
   </div>
+
+  <footer class="d-flex j-content-center">
+    <p>Made with <img src="./coracao.svg" width="15"/> by Gabriel Paiva</p>
+  </footer>
   <script src="./index.js"></script>
 </body>
 
