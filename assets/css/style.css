@@ -1,0 +1,165 @@
+body {
+  background-color: #F2EFEA;
+}
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.j-content-center {
+  justify-content: center;
+}
+
+
+.highlight {
+  /* border: 2px solid #87BCDE !important; */
+  background-color: #87BCDE !important;
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+#container {
+  flex-direction: row;
+  align-content: center;
+  margin-top: 15vh;
+}
+
+#convertContainer {
+  height: 350px;
+  margin: 0 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-text {
+  /* background-color: #805E73; */
+  /* background-color: rgba(134, 104, 123, 0.644); */
+  background-color: #413e3e;
+  color: #fff;
+  /* font-size: 15px; */
+  padding: 15px;
+  height: 330px;
+  width: 380px;
+  border: 0;
+  outline: none;
+  border-radius: 15px;
+  resize: none;
+}
+
+#uploadButton {
+  /* background-color: #F2EFEA; */
+  /* background-color: #87BCDE; */
+  width: 50px;
+  height: 38px;
+  margin: 0 10px;
+  color: #4E4D5C;
+  border-radius: 15px;
+  font-size: x-large;
+}
+
+.tile {
+  background-color: #525252;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.mini-tile {
+  color: #fff;
+  min-width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.option-tile {
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.convert-option {
+  background-color: #805E73;
+  font-weight: 500;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.input-file-tile {
+  background-color: #4E4D5C;
+  color: #F2EFEA;
+  height: 50px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-file-tile:hover {
+  background-color: #805E73;
+}
+
+/* upload icon */
+.input-file-tile i {
+  font-size: x-large;
+}
+
+.input-file-tile p {
+  margin-left: 15px;
+  font-weight: lighter;
+  font-size: medium;
+}
+
+.text-tile {
+  height: 350px;
+  align-items: center;
+}
+
+.output-tile {
+  height: 350px;
+  align-items: center;
+}
+
+/* empty tile with icon */
+.output-tile i {
+  font-size: 60px;
+  color: #413e3e93;
+}
+
+#content .output-option {
+  background-color: #805E73;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+}
+
+/* download and copy icons */
+.output-option i {
+  align-self: center;
+  font-size: x-large;
+}
+
+/* chev right icon */
+.convert-option i {
+  margin: 0 5px;
+}
+
+footer {
+  position: fixed;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  align-items: center;
+  background-color: #3A3335;
+}
