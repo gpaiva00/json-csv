@@ -3,6 +3,7 @@
 <!-- <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css"> -->
 <link rel="stylesheet" href="./src/css/alerts-css.css">
 <link href="./src/css/style.css" type="text/css" rel="stylesheet" />
+<link href="./src/css/tooltips.css" type="text/css" rel="stylesheet"/>
 <script src="https://kit.fontawesome.com/89bbd3450e.js" crossorigin="anonymous"></script>
 
 <body>
@@ -22,12 +23,16 @@
     </div>
     <!-- CONVERT SIDE -->
     <div id="convertContainer" class="d-flex j-content-center">
-      <button onclick="handleConvert('csv')" id="convertOption1" class="d-flex mini-tile convert-option">
-        <i class="fas fa-chevron-circle-right"></i> CSV
-      </button>
-      <button onclick="handleConvert('json')" id="convertOption2" class="d-flex mini-tile convert-option">
-        <i class="fas fa-chevron-circle-right"></i> JSON
-      </button>
+      <span class="tooltip right" data-tip="Converter em CSV" tabindex="1">
+        <button onclick="handleConvert('csv')" id="convertOption1" class="d-flex mini-tile convert-option">
+          <i class="fas fa-chevron-circle-right"></i> CSV
+        </button>
+      </span>
+      <span class="tooltip right" data-tip="Converter em JSON" tabindex="1">
+        <button onclick="handleConvert('json')" id="convertOption2" class="d-flex mini-tile convert-option">
+          <i class="fas fa-chevron-circle-right"></i> JSON
+        </button>
+    </span>
     </div>
     <!-- OUTPUT SIDE -->
     <div id="content">
@@ -37,15 +42,21 @@
         <span id="emptyOutputIcon"><i class="fas fa-align-left"></i></span>
       </div>
       <div class="d-flex option-tile">
-        <button onclick="handleSaveFile()" class="mini-tile output-option">
-          <i class="fas fa-download"></i>
-        </button>
-        <button onclick="clearFields()" class="mini-tile output-option">
-          <i class="fas fa-trash"></i>
-        </button>
-        <button onclick="handleCopyToClipboard()" class="mini-tile output-option">
-          <i class="fas fa-copy"></i>
-        </button>
+        <span class="tooltip top" data-tip="Salvar" tabindex="1">
+          <button onclick="handleSaveFile()" class="mini-tile output-option">
+            <i class="fas fa-download"></i>
+          </button>
+        </span>
+        <span class="tooltip top" data-tip="Limpar tudo" tabindex="1">
+          <button onclick="clearFields()" class="mini-tile output-option">
+            <i class="fas fa-trash"></i>
+          </button>
+        </span>
+        <span class="tooltip top" data-tip="Copiar" tabindex="1">
+          <button onclick="handleCopyToClipboard()" class="mini-tile output-option">
+            <i class="fas fa-copy"></i>
+          </button>
+        </span>
       </div>
     </div>
   </div>
