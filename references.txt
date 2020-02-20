@@ -1,2 +1,5 @@
 How to validate JSON string
 https://stackoverflow.com/questions/3710204/how-to-check-if-a-string-is-a-valid-json-string-in-javascript-without-using-try
+
+Copy to Clipboard
+https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
