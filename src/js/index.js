@@ -15,8 +15,10 @@ function handleUploadButton() {
 }
 
 function handleConvert(target) {
-  const fileContent = inputText.value;
+  const fileContent = String(inputText.value).trim();
   const type = target === 'csv' ? 'application/json' : 'text/csv';
+
+  if (!fileContent.length) return;
   
   if (!validateContent(fileContent, type)) {
     clearFields();
@@ -35,6 +37,9 @@ function handleConvert(target) {
 
 async function handleInputFileChange(evt) {
   const file = evt.target.files[0];
+
+  if (!file) return;
+
   const { name, type } = file;
   
   // show file name
@@ -48,7 +53,7 @@ async function handleInputFileChange(evt) {
   }
   
   // shows up the file content
-  inputText.innerHTML = fileContent;
+  inputText.value = fileContent;
 
   const outputResult = convertFileContent(fileContent, type);
   
@@ -69,7 +74,7 @@ function readFileAndStoreContent(file) {
   const fileReader = new FileReader();
   return new Promise(function(resolve, reject) {
     fileReader.addEventListener('load', function(e) {
-      fileContent = e.target.result;
+      fileContent = String(e.target.result).trim();
       resolve();
     });
   
@@ -92,6 +97,7 @@ function toggleView(element) {
 function clearFields() {
   inputFileLabel.innerHTML = 'OU SUBA UM ARQUIVO';
   inputText.value = '';
+  // inputText.innerHTML = '';
   outputText.innerHTML = '';
   convertOption1.classList.remove('highlight');
   convertOption2.classList.remove('highlight');

@@ -17,6 +17,7 @@ body {
 .highlight {
   /* border: 2px solid #87BCDE !important; */
   background-color: #87BCDE !important;
+  font-weight: bold;
 }
 
 button {
@@ -70,7 +71,7 @@ button {
 
 .mini-tile {
   color: #fff;
-  min-width: 100px;
+  min-width: 80px;
   height: 50px;
   border-radius: 5px;
   border: 0;
