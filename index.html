@@ -35,7 +35,7 @@
         <i id="emptyOutputIcon" class="cil-notes"></i>
       </div>
       <div class="d-flex option-tile">
-        <button class="mini-tile output-option">
+        <button onclick="handleSaveFile()" class="mini-tile output-option">
           <i class="cil-data-transfer-down"></i>
         </button>
         <button onclick="clearFields()" class="mini-tile output-option">
@@ -51,6 +51,8 @@
   <footer class="d-flex j-content-center">
     <p>Made with <img src="./src/img/coracao.svg" width="15"/> by Gabriel Paiva</p>
   </footer>
+
+  <!-- <script src="./src/js/FileSaver.min.js"></script> -->
   <script src="./src/js/validators.js"></script>
   <script src="./src/js/converters.js"></script>
   <script src="./src/js/index.js"></script>

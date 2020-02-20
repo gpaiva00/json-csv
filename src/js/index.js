@@ -7,6 +7,7 @@ const outputText = document.getElementById('outputText');
 const emptyOutputIcon = document.getElementById('emptyOutputIcon');
 
 var fileContent = '';
+var fileFinalType = '';
 
 fileInput.addEventListener('change', handleInputFileChange);
 
@@ -17,6 +18,7 @@ function handleUploadButton() {
 function handleConvert(target) {
   const fileContent = String(inputText.value).trim();
   const type = target === 'csv' ? 'application/json' : 'text/csv';
+  fileFinalType = type;
 
   if (!fileContent.length) return;
   
@@ -35,12 +37,42 @@ function handleConvert(target) {
     toggleView([emptyOutputIcon, outputText]);
 }
 
+function handleSaveFile() {
+  const outputValue = String(outputText.value).trim();
+
+  if (!outputValue.length) return;
+
+  fileFinalType = fileFinalType === 'text/csv' ? 'application/json' : 'text/csv';
+
+  const type = `${fileFinalType};charset=utf-8`;
+  const fileExtension = fileFinalType.split('/')[1];
+  const fileName = `JSVConverter.${fileExtension}`;
+  
+  const blob = new Blob([outputValue], { type });
+  // saveAs(blob, fileName);
+
+  const a = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+
+  setTimeout(() => {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 0)
+}
+
 async function handleInputFileChange(evt) {
   const file = evt.target.files[0];
 
   if (!file) return;
 
   const { name, type } = file;
+
+  fileFinalType = type;
   
   // show file name
   inputFileLabel.innerHTML = String(name).toUpperCase();
