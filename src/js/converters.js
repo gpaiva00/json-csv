@@ -47,7 +47,7 @@ function convertToCsv(fileContent) {
 }
 
 function convertToJson(fileContent) {
-  var array = CSVToArray(fileContent);
+  var array = CSVToArray(String(fileContent).trim());
   var objArray = [];
   for (var i = 1; i < array.length; i++) {
       objArray[i - 1] = {};

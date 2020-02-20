@@ -14,6 +14,25 @@ function handleUploadButton() {
   fileInput.click();
 }
 
+function handleConvert(target) {
+  const fileContent = inputText.value;
+  const type = target === 'csv' ? 'application/json' : 'text/csv';
+  
+  if (!validateContent(fileContent, type)) {
+    clearFields();
+    return console.error('Conteúdo inválido!');
+  }
+
+  const outputResult = convertFileContent(fileContent, type);
+  
+  // shows up result
+  outputText.innerHTML = outputResult;
+  toggleHighlightFromType(type);
+
+  if (outputText.classList.contains('d-none'))
+    toggleView([emptyOutputIcon, outputText]);
+}
+
 async function handleInputFileChange(evt) {
   const file = evt.target.files[0];
   const { name, type } = file;
@@ -72,12 +91,14 @@ function toggleView(element) {
 
 function clearFields() {
   inputFileLabel.innerHTML = 'OU SUBA UM ARQUIVO';
-  inputText.innerHTML = '';
+  inputText.value = '';
   outputText.innerHTML = '';
   convertOption1.classList.remove('highlight');
   convertOption2.classList.remove('highlight');
+  outputText.classList.add('d-none');
+  emptyOutputIcon.classList.remove('d-none');
 
-  toggleView([outputText, emptyOutputIcon]);
+  // toggleView([outputText, emptyOutputIcon]);
 }
 
 function toggleHighlightFromType(fileType) {
