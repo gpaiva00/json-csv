@@ -1,7 +1,9 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
+<!-- <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css"> -->
+<link rel="stylesheet" href="./src/css/alerts-css.css">
 <link href="./src/css/style.css" type="text/css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/89bbd3450e.js" crossorigin="anonymous"></script>
 
 <body>
   <div id="container" class="d-flex j-content-center">
@@ -12,7 +14,7 @@
       </div>
       <div onclick="handleUploadButton()" class="d-flex tile input-file-tile">
         <input type="file" name="file-input" id="fileInput" class="d-none">
-        <i class="cil-data-transfer-up"></i>
+        <i class="fas fa-upload"></i>
         <p id="inputFileLabel">OU SUBA UM ARQUIVO</p>
         <!-- <div id="uploadButton" class=""> -->
         <!-- </div> -->
@@ -21,10 +23,10 @@
     <!-- CONVERT SIDE -->
     <div id="convertContainer" class="d-flex j-content-center">
       <button onclick="handleConvert('csv')" id="convertOption1" class="d-flex mini-tile convert-option">
-        <i class="cil-chevron-circle-right-alt"></i> CSV
+        <i class="fas fa-chevron-circle-right"></i> CSV
       </button>
       <button onclick="handleConvert('json')" id="convertOption2" class="d-flex mini-tile convert-option">
-        <i class="cil-chevron-circle-right-alt"></i> JSON
+        <i class="fas fa-chevron-circle-right"></i> JSON
       </button>
     </div>
     <!-- OUTPUT SIDE -->
@@ -32,18 +34,32 @@
       <div class="d-flex j-content-center tile output-tile text-tile">
         <!-- output text -->
         <textarea class="input-text d-none" name="input-text" id="outputText" readonly></textarea>
-        <i id="emptyOutputIcon" class="cil-notes"></i>
+        <span id="emptyOutputIcon"><i class="fas fa-align-left"></i></span>
       </div>
       <div class="d-flex option-tile">
         <button onclick="handleSaveFile()" class="mini-tile output-option">
-          <i class="cil-data-transfer-down"></i>
+          <i class="fas fa-download"></i>
         </button>
         <button onclick="clearFields()" class="mini-tile output-option">
-          <i class="cil-trash"></i>
+          <i class="fas fa-trash"></i>
         </button>
         <button onclick="handleCopyToClipboard()" class="mini-tile output-option">
-          <i class="cil-copy"></i>
+          <i class="fas fa-copy"></i>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- alert -->
+  <div class="fixed-alerts fixed-alerts_top fixed-alerts_left">
+    <div id="alertElement" class="alert alert_none" style="animation-delay: .1s">
+      <div class="alert--icon">
+        <i id="alertIcon" class="fas fa-exclamation-circle"></i>
+      </div>
+      <div id="alertContent" class="alert--content">
+      </div>
+      <div class="alert--close">
+        <i class="far fa-times-circle"></i>
       </div>
     </div>
   </div>
@@ -56,6 +72,7 @@
   <script src="./src/js/validators.js"></script>
   <script src="./src/js/converters.js"></script>
   <script src="./src/js/index.js"></script>
+  <script src="./src/js/alerts.js"></script>
 </body>
 
 </html>

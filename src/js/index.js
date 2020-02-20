@@ -5,6 +5,9 @@ const convertOption1 = document.getElementById('convertOption1');
 const convertOption2 = document.getElementById('convertOption2');
 const outputText = document.getElementById('outputText');
 const emptyOutputIcon = document.getElementById('emptyOutputIcon');
+const alertElement = document.getElementById('alertElement');
+const alertIcon = document.getElementById('alertIcon');
+const alertContent = document.getElementById('alertContent');
 
 var fileContent = '';
 var fileFinalType = '';
@@ -20,11 +23,12 @@ function handleConvert(target) {
   const type = target === 'csv' ? 'application/json' : 'text/csv';
   fileFinalType = type;
 
+  //  toggleAlert({ text: 'O arquivo vazio!' })
   if (!fileContent.length) return;
   
   if (!validateContent(fileContent, type)) {
     clearFields();
-    return console.error('Conteúdo inválido!');
+    return toggleAlert({ text: 'O conteúdo do é inválido!' });
   }
 
   const outputResult = convertFileContent(fileContent, type);
@@ -58,6 +62,9 @@ function handleSaveFile() {
   a.download = fileName;
   document.body.appendChild(a);
   a.click();
+  
+  toggleAlert({ text: 'Download concluído!', type: 'success' });
+  clearFields();
 
   setTimeout(() => {
     document.body.removeChild(a);
@@ -90,7 +97,7 @@ async function handleInputFileChange(evt) {
 
   if (!validateContent(fileContent, type)) {
     clearFields();
-    return console.error('Arquivo inválido!');
+    return toggleAlert({ text: 'Arquivo inválido!' })
   }
   
   // shows up the file content
@@ -144,6 +151,7 @@ function clearFields() {
   convertOption2.classList.remove('highlight');
   outputText.classList.add('d-none');
   emptyOutputIcon.classList.remove('d-none');
+  fileInput.value = null;
 
   // toggleView([outputText, emptyOutputIcon]);
 }
@@ -156,4 +164,14 @@ function toggleHighlightFromType(fileType) {
     return convertOption1.classList.add('highlight');
   else if (fileType === 'text/csv')
     return convertOption2.classList.add('highlight');
+}
+
+function toggleAlert({ text, icon = 'fas fa-exclamation-circle', type = 'warning' }) {
+  alertElement.classList.remove('alert_success');
+  alertElement.classList.remove('alert_warning');
+
+  alertContent.innerText = text;
+  alertElement.classList.add(`alert_${type}`);
+  // if (!checkShowing(alertElement))
+  alertElement.classList.toggle('alert_none');
 }
