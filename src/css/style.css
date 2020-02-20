@@ -13,6 +13,12 @@ body {
   justify-content: center;
 }
 
+
+.highlight {
+  /* border: 2px solid #87BCDE !important; */
+  background-color: #87BCDE !important;
+}
+
 button {
   cursor: pointer;
 }
@@ -30,7 +36,7 @@ button {
   align-items: center;
 }
 
-#inputText {
+.input-text {
   /* background-color: #805E73; */
   /* background-color: rgba(134, 104, 123, 0.644); */
   background-color: #413e3e;
@@ -38,7 +44,7 @@ button {
   /* font-size: 15px; */
   padding: 15px;
   height: 330px;
-  width: 330px;
+  width: 380px;
   border: 0;
   outline: none;
   border-radius: 15px;
@@ -58,7 +64,7 @@ button {
 
 .tile {
   background-color: #525252;
-  width: 350px;
+  width: 400px;
   border-radius: 15px;
 }
 
@@ -108,7 +114,7 @@ button {
   font-size: medium;
 }
 
-.input-text-tile {
+.text-tile {
   height: 350px;
   align-items: center;
 }
