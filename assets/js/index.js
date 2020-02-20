@@ -28,7 +28,7 @@ function handleConvert(target) {
   
   if (!validateContent(fileContent, type)) {
     clearFields();
-    return toggleAlert({ text: 'O conteúdo do é inválido!' });
+    return toggleAlert({ text: 'O conteúdo é inválido!' });
   }
 
   const outputResult = convertFileContent(fileContent, type);
