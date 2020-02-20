@@ -9,9 +9,19 @@ function validateJson(fileContent) {
   replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
   replace(/(?:^|:|,)(?:\s*\[)+/g, ''))
 
-  // JSON.parse(fileContent);
 }
 
+// TODO: improve csv validation
 function validateCsv(fileContent) {
-  return true;
+  fileContent = fileContent.split(',');
+  
+  if (!fileContent) return false;
+
+  for(var i=0;i<fileContent.length;i++) {
+    const item = String(fileContent[i]).trim();
+    
+    if(!item.length) return false;
+  }
+  
+  return true; 
 }
