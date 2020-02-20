@@ -8,6 +8,8 @@ const emptyOutputIcon = document.getElementById('emptyOutputIcon');
 const alertElement = document.getElementById('alertElement');
 const alertIcon = document.getElementById('alertIcon');
 const alertContent = document.getElementById('alertContent');
+const JSON_TYPE = 'application/json';
+const CSV_TYPE = 'text/csv';
 
 var fileContent = '';
 var fileFinalType = '';
@@ -18,9 +20,18 @@ function handleUploadButton() {
   fileInput.click();
 }
 
+function showUpConvertResult({outputResult, type, }) {
+  // shows up result
+  outputText.innerHTML = outputResult;
+  toggleHighlightFromType(type);
+
+  if (outputText.classList.contains('d-none'))
+    toggleView([emptyOutputIcon, outputText]);
+}
+
 function handleConvert(target) {
   const fileContent = String(inputText.value).trim();
-  const type = target === 'csv' ? 'application/json' : 'text/csv';
+  const type = target === 'csv' ? JSON_TYPE : CSV_TYPE;
   fileFinalType = type;
 
   //  toggleAlert({ text: 'O arquivo vazio!' })
@@ -33,20 +44,16 @@ function handleConvert(target) {
 
   const outputResult = convertFileContent(fileContent, type);
   
-  // shows up result
-  outputText.innerHTML = outputResult;
-  toggleHighlightFromType(type);
-
-  if (outputText.classList.contains('d-none'))
-    toggleView([emptyOutputIcon, outputText]);
+  showUpConvertResult({ outputResult, type });
 }
 
 function handleSaveFile() {
   const outputValue = String(outputText.value).trim();
 
   if (!outputValue.length) return;
-
-  fileFinalType = fileFinalType === 'text/csv' ? 'application/json' : 'text/csv';
+  
+  // download file type
+  fileFinalType = fileFinalType === CSV_TYPE ? JSON_TYPE : CSV_TYPE;
 
   const type = `${fileFinalType};charset=utf-8`;
   const fileExtension = fileFinalType.split('/')[1];
@@ -87,10 +94,9 @@ async function handleInputFileChange(evt) {
   if (!file) return;
 
   const { name, type } = file;
-
+  // set target type to download file
   fileFinalType = type;
   
-  // show file name
   inputFileLabel.innerHTML = String(name).toUpperCase();
   
   await readFileAndStoreContent(file);
@@ -105,17 +111,7 @@ async function handleInputFileChange(evt) {
 
   const outputResult = convertFileContent(fileContent, type);
   
-  // shows up result
-  outputText.innerHTML = outputResult;
-  toggleHighlightFromType(type)
-
-  if (outputText.classList.contains('d-none'))
-    toggleView([emptyOutputIcon, outputText]);
-}
-
-function convertFileContent(fileContent, fileType) {
-  if (fileType === 'application/json') return convertToCsv(fileContent);
-  else if (fileType === 'text/csv') return convertToJson(fileContent);
+  showUpConvertResult({ outputResult, type });
 }
 
 function readFileAndStoreContent(file) {
@@ -128,12 +124,6 @@ function readFileAndStoreContent(file) {
   
     fileReader.readAsText(file);
   });
-}
-
-function validateContent(fileContent, fileType) {
-  // must return if its true and file type to convert automatically
-  if(fileType === 'application/json') return validateJson(fileContent);
-  else if(fileType === 'text/csv') return validateCsv(fileContent);
 }
 
 function toggleView(element) {
@@ -160,9 +150,9 @@ function toggleHighlightFromType(fileType) {
   convertOption1.classList.remove('highlight');
   convertOption2.classList.remove('highlight');
 
-  if (fileType === 'application/json')
+  if (fileType === JSON_TYPE)
     return convertOption1.classList.add('highlight');
-  else if (fileType === 'text/csv')
+  else if (fileType === CSV_TYPE)
     return convertOption2.classList.add('highlight');
 }
 

@@ -1,3 +1,9 @@
+// main function
+function validateContent(fileContent, fileType) {
+  if(fileType === JSON_TYPE) return validateJson(fileContent);
+  else if(fileType === CSV_TYPE) return validateCsv(fileContent);
+}
+
 function validateJson(fileContent) {
   try {
     JSON.parse(fileContent);

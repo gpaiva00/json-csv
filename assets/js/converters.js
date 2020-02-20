@@ -1,3 +1,9 @@
+// main function
+function convertFileContent(fileContent, fileType) {
+  if (fileType === JSON_TYPE) return convertToCsv(fileContent);
+  else if (fileType === CSV_TYPE) return convertToJson(fileContent);
+}
+
 function convertToCsv(fileContent) {
   const jsonParse = typeof fileContent != 'object' ? JSON.parse(fileContent) : fileContent;
   var array = Array.isArray(jsonParse) ? jsonParse : [jsonParse];
