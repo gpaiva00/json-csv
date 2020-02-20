@@ -64,7 +64,7 @@ function handleSaveFile() {
   a.click();
   
   toggleAlert({ text: 'Download concluído!', type: 'success' });
-  clearFields();
+  // clearFields();
 
   setTimeout(() => {
     document.body.removeChild(a);
