@@ -74,6 +74,8 @@ function clearFields() {
   inputFileLabel.innerHTML = 'OU SUBA UM ARQUIVO';
   inputText.innerHTML = '';
   outputText.innerHTML = '';
+  convertOption1.classList.remove('highlight');
+  convertOption2.classList.remove('highlight');
 
   toggleView([outputText, emptyOutputIcon]);
 }
