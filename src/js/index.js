@@ -65,6 +65,15 @@ function handleSaveFile() {
   }, 0)
 }
 
+function handleCopyToClipboard() {
+  const textarea = document.createElement('textarea');
+  textarea.value = String(outputText.value).trim();
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);  
+}
+
 async function handleInputFileChange(evt) {
   const file = evt.target.files[0];
 
