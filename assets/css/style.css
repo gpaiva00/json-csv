@@ -163,3 +163,10 @@ footer {
   align-items: center;
   background-color: #3A3335;
 }
+
+/* github icon */
+footer i.fa-github {
+  font-size: 20px;
+  margin: 0 15px;
+  color: #fff;
+}

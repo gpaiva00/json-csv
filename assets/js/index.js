@@ -10,6 +10,10 @@ const alertIcon = document.getElementById('alertIcon');
 const alertContent = document.getElementById('alertContent');
 const JSON_TYPE = 'application/json';
 const CSV_TYPE = 'text/csv';
+const MSG_INVALID_CONTENT = 'Invalid file content!';
+const MSG_DOWNLOAD_SUCCESS = 'Dowload completed!';
+const MSG_INVALID_FILE = 'Invalid file format!';
+const UPLOAD_FILE_LABEL = 'OR UPLOAD FILE';
 
 var fileContent = '';
 var fileFinalType = '';
@@ -39,7 +43,7 @@ function handleConvert(target) {
   
   if (!validateContent(fileContent, type)) {
     clearFields();
-    return toggleAlert({ text: 'O conteúdo é inválido!' });
+    return toggleAlert({ text: MSG_INVALID_CONTENT });
   }
 
   const outputResult = convertFileContent(fileContent, type);
@@ -70,7 +74,7 @@ function handleSaveFile() {
   document.body.appendChild(a);
   a.click();
   
-  toggleAlert({ text: 'Download concluído!', type: 'success' });
+  toggleAlert({ text: MSG_DOWNLOAD_SUCCESS, type: 'success' });
   // clearFields();
 
   setTimeout(() => {
@@ -103,7 +107,7 @@ async function handleInputFileChange(evt) {
 
   if (!validateContent(fileContent, type)) {
     clearFields();
-    return toggleAlert({ text: 'Arquivo inválido!' })
+    return toggleAlert({ text: MSG_INVALID_FILE })
   }
   
   // shows up the file content
@@ -133,7 +137,7 @@ function toggleView(element) {
 }
 
 function clearFields() {
-  inputFileLabel.innerHTML = 'OU SUBA UM ARQUIVO';
+  inputFileLabel.innerHTML = UPLOAD_FILE_LABEL;
   inputText.value = '';
   // inputText.innerHTML = '';
   outputText.innerHTML = '';

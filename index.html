@@ -19,24 +19,24 @@
     <!-- INPUT SIDE -->
     <div id="content">
       <div class="d-flex j-content-center tile text-tile">
-        <textarea name="input-text" id="inputText" class="input-text" placeholder="Digite ou cole aqui CSV ou JSON..."></textarea>
+        <textarea name="input-text" id="inputText" class="input-text" placeholder="Type or paste CSV ou JSON..."></textarea>
       </div>
       <div onclick="handleUploadButton()" class="d-flex tile input-file-tile">
         <input type="file" name="file-input" id="fileInput" class="d-none">
         <i class="fas fa-upload"></i>
-        <p id="inputFileLabel">OU SUBA UM ARQUIVO</p>
+        <p id="inputFileLabel">OR UPLOAD FILE</p>
         <!-- <div id="uploadButton" class=""> -->
         <!-- </div> -->
       </div>
     </div>
     <!-- CONVERT SIDE -->
     <div id="convertContainer" class="d-flex j-content-center">
-      <span class="tooltip right" data-tip="Converter em CSV" tabindex="1">
+      <span class="tooltip right" data-tip="Convert to CSV" tabindex="1">
         <button onclick="handleConvert('csv')" id="convertOption1" class="d-flex mini-tile convert-option">
           <i class="fas fa-chevron-circle-right"></i> CSV
         </button>
       </span>
-      <span class="tooltip right" data-tip="Converter em JSON" tabindex="1">
+      <span class="tooltip right" data-tip="Convert to JSON" tabindex="1">
         <button onclick="handleConvert('json')" id="convertOption2" class="d-flex mini-tile convert-option">
           <i class="fas fa-chevron-circle-right"></i> JSON
         </button>
@@ -50,17 +50,17 @@
         <span id="emptyOutputIcon"><i class="fas fa-align-left"></i></span>
       </div>
       <div class="d-flex option-tile">
-        <span class="tooltip top" data-tip="Salvar" tabindex="1">
+        <span class="tooltip top" data-tip="Save" tabindex="1">
           <button onclick="handleSaveFile()" class="mini-tile output-option">
             <i class="fas fa-download"></i>
           </button>
         </span>
-        <span class="tooltip top" data-tip="Limpar tudo" tabindex="1">
+        <span class="tooltip top" data-tip="Clear all" tabindex="1">
           <button onclick="clearFields()" class="mini-tile output-option">
             <i class="fas fa-trash"></i>
           </button>
         </span>
-        <span class="tooltip top" data-tip="Copiar" tabindex="1">
+        <span class="tooltip top" data-tip="Copy" tabindex="1">
           <button onclick="handleCopyToClipboard()" class="mini-tile output-option">
             <i class="fas fa-copy"></i>
           </button>
@@ -84,6 +84,9 @@
   </div>
 
   <footer class="d-flex j-content-center">
+    <a href="https://github.com/gpaiva00/json-csv">
+      <i class="fab fa-github"></i>
+    </a>
     <p>Made with <img src="./assets/img/coracao.svg" width="15"/> by Gabriel Paiva</p>
   </footer>
 
