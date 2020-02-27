@@ -24,13 +24,13 @@ function handleUploadButton() {
   fileInput.click();
 }
 
-function showUpConvertResult({outputResult, type, }) {
+function showUpConvertResult({ outputResult, type }) {
   // shows up result
   outputText.innerHTML = outputResult;
   toggleHighlightFromType(type);
 
   if (outputText.classList.contains('d-none'))
-    toggleView([emptyOutputIcon, outputText]);
+    toggleView([ emptyOutputIcon, outputText ]);
 }
 
 function handleConvert(target) {
@@ -38,7 +38,6 @@ function handleConvert(target) {
   const type = target === 'csv' ? JSON_TYPE : CSV_TYPE;
   fileFinalType = type;
 
-  //  toggleAlert({ text: 'O arquivo vazio!' })
   if (!fileContent.length) return;
   
   if (!validateContent(fileContent, type)) {
@@ -139,15 +138,12 @@ function toggleView(element) {
 function clearFields() {
   inputFileLabel.innerHTML = UPLOAD_FILE_LABEL;
   inputText.value = '';
-  // inputText.innerHTML = '';
   outputText.innerHTML = '';
   convertOption1.classList.remove('highlight');
   convertOption2.classList.remove('highlight');
   outputText.classList.add('d-none');
   emptyOutputIcon.classList.remove('d-none');
   fileInput.value = null;
-
-  // toggleView([outputText, emptyOutputIcon]);
 }
 
 function toggleHighlightFromType(fileType) {
@@ -166,6 +162,5 @@ function toggleAlert({ text, icon = 'fas fa-exclamation-circle', type = 'warning
 
   alertContent.innerText = text;
   alertElement.classList.add(`alert_${type}`);
-  // if (!checkShowing(alertElement))
   alertElement.classList.toggle('alert_none');
 }
