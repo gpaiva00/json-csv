@@ -1,22 +1,22 @@
-const fileInput = document.getElementById('fileInput');
-const inputFileLabel = document.getElementById('inputFileLabel');
-const inputText = document.getElementById('inputText');
-const convertOption1 = document.getElementById('convertOption1');
-const convertOption2 = document.getElementById('convertOption2');
-const outputText = document.getElementById('outputText');
-const emptyOutputIcon = document.getElementById('emptyOutputIcon');
-const alertElement = document.getElementById('alertElement');
-const alertIcon = document.getElementById('alertIcon');
-const alertContent = document.getElementById('alertContent');
-const JSON_TYPE = 'application/json';
-const CSV_TYPE = 'text/csv';
-const MSG_INVALID_CONTENT = 'Invalid content!';
-const MSG_DOWNLOAD_SUCCESS = 'Dowload completed!';
-const MSG_INVALID_FILE = 'Invalid file format!';
-const UPLOAD_FILE_LABEL = 'OR UPLOAD FILE';
+const fileInput = document.getElementById('fileInput'),
+      inputFileLabel = document.getElementById('inputFileLabel'),
+      inputText = document.getElementById('inputText'),
+      convertOption1 = document.getElementById('convertOption1'),
+      convertOption2 = document.getElementById('convertOption2'),
+      outputText = document.getElementById('outputText'),
+      emptyOutputIcon = document.getElementById('emptyOutputIcon'),
+      alertElement = document.getElementById('alertElement'),
+      alertIcon = document.getElementById('alertIcon'),
+      alertContent = document.getElementById('alertContent'),
+      JSON_TYPE = 'application/json',
+      CSV_TYPE = 'text/csv',
+      MSG_INVALID_CONTENT = 'Invalid content!',
+      MSG_DOWNLOAD_SUCCESS = 'Dowload completed!',
+      MSG_INVALID_FILE = 'Invalid file format!',
+      UPLOAD_FILE_LABEL = 'OR UPLOAD FILE';
 
-var fileContent = '';
-var fileFinalType = '';
+var fileContent = '',
+    fileFinalType = '';
 
 fileInput.addEventListener('change', handleInputFileChange);
 
@@ -58,15 +58,12 @@ function handleSaveFile() {
   // download file type
   fileFinalType = fileFinalType === CSV_TYPE ? JSON_TYPE : CSV_TYPE;
 
-  const type = `${fileFinalType};charset=utf-8`;
-  const fileExtension = fileFinalType.split('/')[1];
-  const fileName = `JSVConverter.${fileExtension}`;
-  
-  const blob = new Blob([outputValue], { type });
-  // saveAs(blob, fileName);
-
-  const a = document.createElement('a');
-  const url = URL.createObjectURL(blob);
+  const type = `${fileFinalType};charset=utf-8`,
+        fileExtension = fileFinalType.split('/')[1],
+        fileName = `JSVConverter.${fileExtension}`,
+        blob = new Blob([outputValue], { type }),
+        a = document.createElement('a'),
+        url = URL.createObjectURL(blob);
 
   a.href = url;
   a.download = fileName;
