@@ -132,13 +132,13 @@ function toggleView(element) {
   toggleElement.forEach(element => element.classList.toggle('d-none'));
 }
 
-function clearFields() {
+function clearFields({ clearInputText } = false) {
+  if (clearInputText) inputText.value = '';
   inputFileLabel.innerHTML = UPLOAD_FILE_LABEL;
-  inputText.value = '';
   outputText.innerHTML = '';
+  outputText.classList.add('d-none');
   convertOption1.classList.remove('highlight');
   convertOption2.classList.remove('highlight');
-  outputText.classList.add('d-none');
   emptyOutputIcon.classList.remove('d-none');
   fileInput.value = null;
 }
