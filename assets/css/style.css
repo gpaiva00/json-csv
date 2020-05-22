@@ -75,6 +75,7 @@ button {
   height: 50px;
   border-radius: 5px;
   border: 0;
+  align-items: center;
 }
 
 .option-tile {
